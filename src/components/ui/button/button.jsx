@@ -1,8 +1,10 @@
 const Button = ({ type, className, onClick, text }) => {
   return (
-    <button type={type} className={className} onClick={onClick}>
-      {text}
-    </button>
+    <div className="mb-3">
+      <button type={type} className={className} onClick={onClick}>
+        {text}
+      </button>
+    </div>
   );
 };
 
