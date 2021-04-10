@@ -48,7 +48,7 @@ function Counter(props) {
       ) : (
         valueLimit
       )}
-      <div className="col-12">
+      <div className="col-12 d-flex">
         <Button
           type="button"
           className="btn btn-outline-primary"

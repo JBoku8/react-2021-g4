@@ -5,6 +5,7 @@ import Greeting from "../../components/greeting";
 import "./home-page.css";
 
 function HomePage(props) {
+  // throw SyntaxError("Something went wrong.");
   return (
     <div className="row">
       <Greeting
