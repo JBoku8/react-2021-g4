@@ -1,0 +1,9 @@
+.nav-pills .active.bg-homePage {
+  background-color: #130f40;
+}
+.nav-pills .active.bg-classCounter {
+  background-color: #eb4d4b;
+}
+.nav-pills .active.bg-notesPage {
+  background-color: #f0932b;
+}
