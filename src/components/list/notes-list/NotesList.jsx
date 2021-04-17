@@ -1,16 +1,15 @@
+import { useContext } from 'react';
 import NoteListItem from './NoteListItem';
+import { NotesContext } from '../../../contexts/NotesProvider';
+
 import './style.css';
-function NotesList({ data = [], onNoteItemClick }) {
+
+function NotesList(props) {
+  const { noteList } = useContext(NotesContext);
   return (
     <div className="row d-flex flex-wrap justify-content-between">
-      {data.map((note) => {
-        return (
-          <NoteListItem
-            key={note.id}
-            note={note}
-            onNoteItemClick={onNoteItemClick}
-          />
-        );
+      {noteList.map((note) => {
+        return <NoteListItem key={note.id} note={note} />;
       })}
     </div>
   );

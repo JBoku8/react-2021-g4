@@ -5,16 +5,18 @@ import ClassCounter from './pages/class-counter/class-counter';
 import Navigation from './components/navigation/navigation';
 import Theme from './components/theme/theme';
 
+import NotesProvider from './contexts/NotesProvider';
+
 import './App.css';
 
 function App() {
   const [page, setPage] = useState({
     homePage: false,
-    notesPage: false,
-    classCounter: true,
+    notesPage: true,
+    classCounter: false,
   });
 
-  const [activePage, setActivePage] = useState('classCounter');
+  const [activePage, setActivePage] = useState('notesPage');
 
   // newObject !== oldObject
 
@@ -36,7 +38,11 @@ function App() {
     if (page.homePage) {
       return <HomePage />;
     } else if (page.notesPage) {
-      return <NotesPage />;
+      return (
+        <NotesProvider>
+          <NotesPage />
+        </NotesProvider>
+      );
     } else if (page.classCounter) {
       return <ClassCounter title="class component example" initialValue={10} />;
     }

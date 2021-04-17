@@ -1,12 +1,15 @@
-import { useState } from "react";
-import Button from "../../ui/button";
+import { useState, useContext } from 'react';
+import Button from '../../ui/button';
 
-import "./style.css";
+import { NotesContext } from '../../../contexts/NotesProvider';
 
-function AddNoteForm({ addNewNote, nextid }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+import './style.css';
+
+function AddNoteForm(props) {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [completed, setCompleted] = useState(false);
+  const { addNewNote, nextId } = useContext(NotesContext);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -14,11 +17,11 @@ function AddNoteForm({ addNewNote, nextid }) {
       title,
       description,
       completed,
-      id: nextid,
+      id: nextId,
     };
     addNewNote(newNote);
-    setTitle("");
-    setDescription("");
+    setTitle('');
+    setDescription('');
     setCompleted(false);
   };
 
@@ -52,8 +55,7 @@ function AddNoteForm({ addNewNote, nextid }) {
           value={description}
           onChange={({ target }) => {
             setDescription(target.value);
-          }}
-        ></textarea>
+          }}></textarea>
       </div>
       <div className="mb-3 form-check">
         <input
