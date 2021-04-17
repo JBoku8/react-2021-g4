@@ -12,8 +12,10 @@ function HomePage(props) {
         title="Home Page."
         description="home page is my awesome page!"
       />
+
       <Welcome message="Hello everybody..." color="carminePink" />
       <hr />
+
       <Counter />
     </div>
   );

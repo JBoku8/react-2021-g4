@@ -1,11 +1,11 @@
-import { useState } from "react";
-import HomePage from "./pages/home-page";
-import NotesPage from "./pages/notes-page";
-import ClassCounter from "./pages/class-counter/class-counter";
-import Navigation from "./components/navigation/navigation";
-import Theme from "./components/theme/theme";
+import { useState } from 'react';
+import HomePage from './pages/home-page';
+import NotesPage from './pages/notes-page';
+import ClassCounter from './pages/class-counter/class-counter';
+import Navigation from './components/navigation/navigation';
+import Theme from './components/theme/theme';
 
-import "./App.css";
+import './App.css';
 
 function App() {
   const [page, setPage] = useState({
@@ -14,7 +14,7 @@ function App() {
     classCounter: true,
   });
 
-  const [activePage, setActivePage] = useState("classCounter");
+  const [activePage, setActivePage] = useState('classCounter');
 
   // newObject !== oldObject
 

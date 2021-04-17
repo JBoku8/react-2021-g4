@@ -1,5 +1,5 @@
-import NoteListItem from "./NoteListItem";
-import "./style.css";
+import NoteListItem from './NoteListItem';
+import './style.css';
 function NotesList({ data = [], onNoteItemClick }) {
   return (
     <div className="row d-flex flex-wrap justify-content-between">
