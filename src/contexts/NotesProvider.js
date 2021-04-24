@@ -16,7 +16,9 @@ function NotesProviderComponent({ children }) {
 
   const loadNoteList = async () => {
     const lst = await API_SERVICE.getNoteListAsync({ start: 57, limit: 15 });
-    setNoteList(lst);
+    if (lst) {
+      setNoteList(lst);
+    }
   };
 
   useEffect(() => {
