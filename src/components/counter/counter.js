@@ -1,32 +1,32 @@
-import { useState, useEffect } from "react";
-import Greeting from "../greeting";
+import { useState, useEffect } from 'react';
+import Greeting from '../greeting';
 
-import Button from "../ui/button";
+import Button from '../ui/button';
 // import { Button } from "../ui";
 
-import "./counter.css";
+import './counter.css';
 
 function Counter(props) {
   const [count, setCount] = useState(0);
   const [showGreeting, setShowGreeting] = useState(true);
 
   useEffect(() => {
-    console.log("მუდმივი ფუნქცია, კომპონენტის დახატვისას");
+    // console.log("მუდმივი ფუნქცია, კომპონენტის დახატვისას");
   });
 
   // componentDidMount
   useEffect(() => {
     // AJAX calls
-    console.log("კომპონენტის დახატვისას ერთხელ");
+    // console.log("კომპონენტის დახატვისას ერთხელ");
   }, []);
 
   useEffect(() => {
-    console.log("count ცვლადის ცვლილებისას");
+    // console.log("count ცვლადის ცვლილებისას");
     setShowGreeting(count < 15 && count > -15);
   }, [count, setShowGreeting]);
 
   useEffect(() => {
-    console.log("SHOW GREETING");
+    // console.log("SHOW GREETING");
   }, [showGreeting]);
 
   const onButtonClick = ({ target }) => {

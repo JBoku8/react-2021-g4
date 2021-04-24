@@ -1,7 +1,7 @@
-import "./welcome.css";
+import './welcome.css';
 
 function Welcome({ color, message }) {
-  const colors = ["deepCove", "steelPink", "carminePink", "pureApple"];
+  const colors = ['deepCove', 'steelPink', 'carminePink', 'pureApple'];
 
   // if (!colors.includes(color)) {
   //   return (
@@ -32,7 +32,7 @@ function Welcome({ color, message }) {
   const renderSuccess = () => {
     return (
       <div className="row">
-        <h1 className={["fs-1", `text-${color}`].join(" ")}>{message}</h1>
+        <h1 className={['fs-1', `text-${color}`].join(' ')}>{message}</h1>
       </div>
     );
   };

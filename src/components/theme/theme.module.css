@@ -1,9 +1,11 @@
-.bg-homePage {
+.homePage {
   background-color: #130f40;
 }
-.bg-classCounter {
+
+.classCounter {
   background-color: #eb4d4b;
 }
-.bg-notesPage {
+
+.notesPage {
   background-color: #f0932b;
 }

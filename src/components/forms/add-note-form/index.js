@@ -1,2 +1,2 @@
-import AddNoteForm from "./AddNoteForm.jsx";
+import AddNoteForm from './AddNoteForm';
 export default AddNoteForm;
