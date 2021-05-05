@@ -1,8 +1,6 @@
-const baseUrl = 'https://jsonplaceholder.typicode.com';
-
 export class API_SERVICE {
   static getNoteList({ callback, start = 0, limit = 9 }) {
-    const url = `${baseUrl}/todos??_start=${start}&_limit=${limit}`;
+    const url = `${process.env.REACT_APP_API_URL}/todos??_start=${start}&_limit=${limit}`;
 
     fetch(url)
       .then((response) => response.json())
@@ -16,7 +14,7 @@ export class API_SERVICE {
   }
 
   static async getNoteListAsync({ start = 0, limit = 9 }) {
-    const url = `${baseUrl}/todos??_start=${start}&_limit=${limit}`;
+    const url = `${process.env.REACT_APP_API_URL}/todos??_start=${start}&_limit=${limit}`;
     try {
       const response = await fetch(url);
       const result = await response.json();
