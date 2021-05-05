@@ -39,6 +39,14 @@ function Navigation(props) {
             Profile
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink
+            className="nav-link"
+            to="/auth"
+            activeClassName="active bg-classCounter ">
+            Auth
+          </NavLink>
+        </li>
       </ul>
     </div>
   );
