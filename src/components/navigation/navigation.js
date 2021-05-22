@@ -42,6 +42,15 @@ function Navigation(props) {
         <li className="nav-item">
           <NavLink
             className="nav-link"
+            to="/credit-cards"
+            activeClassName="active bg-classCounter ">
+            Credit Cards
+          </NavLink>
+        </li>
+
+        <li className="nav-item">
+          <NavLink
+            className="nav-link"
             to="/auth"
             activeClassName="active bg-classCounter ">
             Auth

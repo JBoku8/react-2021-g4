@@ -1,17 +1,20 @@
+import React, { Suspense } from 'react';
+
 import { Switch, Route } from 'react-router';
 
 import HomePage from './pages/home-page';
-import NotesPage from './pages/notes-page';
-import ClassCounter from './pages/class-counter/class-counter';
-import Profile from './pages/profile';
-import AuthPage from './pages/auth';
-
-import Navigation from './components/navigation/navigation';
+import Navigation from './components/navigation';
 import Theme from './components/theme/theme';
-
 import NotesProvider from './contexts/NotesProvider';
+import { Loader } from './components/loader';
 
 import './App.css';
+
+const NotesPage = React.lazy(() => import('./pages/notes-page'));
+const ClassCounter = React.lazy(() => import('./pages/class-counter'));
+const Profile = React.lazy(() => import('./pages/profile'));
+const AuthPage = React.lazy(() => import('./pages/auth'));
+const CreditCards = React.lazy(() => import('./pages/credit-cards'));
 
 function App() {
   return (
@@ -19,29 +22,35 @@ function App() {
       <Navigation />
 
       <Theme>
-        <Switch>
-          <Route path="/counter">
-            <ClassCounter title="class component example" initialValue={10} />
-          </Route>
+        <Suspense fallback={<Loader message="Page is loading..." />}>
+          <Switch>
+            <Route path="/counter">
+              <ClassCounter title="class component example" initialValue={10} />
+            </Route>
 
-          <Route path="/notes">
-            <NotesProvider>
-              <NotesPage />
-            </NotesProvider>
-          </Route>
+            <Route path="/notes">
+              <NotesProvider>
+                <NotesPage />
+              </NotesProvider>
+            </Route>
 
-          <Route path="/profile">
-            <Profile title="Secured Profile Page" />
-          </Route>
+            <Route path="/profile">
+              <Profile title="Secured Profile Page" />
+            </Route>
 
-          <Route path="/auth">
-            <AuthPage />
-          </Route>
+            <Route path="/credit-cards">
+              <CreditCards />
+            </Route>
 
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
+            <Route path="/auth">
+              <AuthPage />
+            </Route>
+
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+        </Suspense>
       </Theme>
     </div>
   );
