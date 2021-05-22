@@ -19,6 +19,9 @@ function Theme({ children, type }) {
       case '/profile':
         theme = css.classCounter;
         break;
+      case '/credit-cards':
+        theme = 'bg-light';
+        break;
       default:
         theme = css.homePage;
     }
