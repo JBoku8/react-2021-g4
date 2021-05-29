@@ -1,14 +1,19 @@
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { withAuthProtected } from '../../hoc';
 import { logOut } from '../../services';
+
+import { setGuestUserAction } from '../../redux/actions';
 
 import css from './profile.module.css';
 
 function Profile(props) {
   const history = useHistory();
+  const dispatch = useDispatch();
   const onLogOut = async () => {
     await logOut();
+    dispatch(setGuestUserAction());
     history.replace('/');
   };
 

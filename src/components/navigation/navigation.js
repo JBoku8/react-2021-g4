@@ -1,8 +1,13 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
+import { authSelector } from '../../redux/selectors';
 
 import './styles.css';
 
-function Navigation(props) {
+function Navigation() {
+  const authorized = useSelector(authSelector);
+
   return (
     <div className="row mt-4 mb-4">
       <ul className="nav nav-pills nav-fill">
@@ -15,6 +20,7 @@ function Navigation(props) {
             Home Page
           </NavLink>
         </li>
+
         <li className="nav-item">
           <NavLink
             className="nav-link"
@@ -23,6 +29,7 @@ function Navigation(props) {
             Notes Page
           </NavLink>
         </li>
+
         <li className="nav-item">
           <NavLink
             className="nav-link"
@@ -31,14 +38,18 @@ function Navigation(props) {
             Class Counter
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink
-            className="nav-link"
-            to="/profile"
-            activeClassName="active bg-classCounter ">
-            Profile
-          </NavLink>
-        </li>
+
+        {authorized && (
+          <li className="nav-item">
+            <NavLink
+              className="nav-link"
+              to="/profile"
+              activeClassName="active bg-classCounter ">
+              Profile
+            </NavLink>
+          </li>
+        )}
+
         <li className="nav-item">
           <NavLink
             className="nav-link"
@@ -51,11 +62,22 @@ function Navigation(props) {
         <li className="nav-item">
           <NavLink
             className="nav-link"
-            to="/auth"
+            to="/redux-counter"
             activeClassName="active bg-classCounter ">
-            Auth
+            Redux Counter
           </NavLink>
         </li>
+
+        {!authorized && (
+          <li className="nav-item">
+            <NavLink
+              className="nav-link"
+              to="/auth"
+              activeClassName="active bg-classCounter ">
+              Auth
+            </NavLink>
+          </li>
+        )}
       </ul>
     </div>
   );
