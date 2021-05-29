@@ -15,6 +15,7 @@ const ClassCounter = React.lazy(() => import('./pages/class-counter'));
 const Profile = React.lazy(() => import('./pages/profile'));
 const AuthPage = React.lazy(() => import('./pages/auth'));
 const CreditCards = React.lazy(() => import('./pages/credit-cards'));
+const ReduxCounter = React.lazy(() => import('./pages/redux-counter'));
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
 
             <Route path="/credit-cards">
               <CreditCards />
+            </Route>
+
+            <Route path="/redux-counter">
+              <ReduxCounter />
             </Route>
 
             <Route path="/auth">

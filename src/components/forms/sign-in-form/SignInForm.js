@@ -1,18 +1,22 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { login } from '../../../services';
+import { setAuthUserAction } from '../../../redux/actions';
 
-function SignInForm(props) {
+function SignInForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
     const loggedIn = await login(data);
     localStorage.setItem('auth.token', JSON.stringify(loggedIn.token));
+    dispatch(setAuthUserAction(loggedIn.token));
     history.replace('/profile');
   };
 
