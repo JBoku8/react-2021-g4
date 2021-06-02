@@ -23,22 +23,26 @@ function ReduxCounter() {
         <h2 className="text-white">{counter}</h2>
         <button
           className="btn btn-primary"
+          type="button"
           onClick={() => dispatch(addNumberAction(10))}>
           Add Number - Action
         </button>
         <button
           className="btn btn-primary"
+          type="button"
           onClick={() => dispatch(subtractNumberAction(10))}>
           Subtract Number - Action
         </button>
         <button
           className="btn btn-primary"
+          type="button"
           onClick={() => dispatch(resetNumberAction())}>
           Reset Number - Action
         </button>
 
         <button
           className="btn btn-danger"
+          type="button"
           onClick={() =>
             dispatch({
               type: 'INVALID_ACTION',

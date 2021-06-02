@@ -7,7 +7,7 @@ import { withNoAuth } from '../../hoc';
 import SignIn from './sign-in';
 import SignUp from './sign-up';
 
-function AuthPage(props) {
+function AuthPage() {
   const location = useLocation();
   return (
     <div className="row bg-light p-5">

@@ -1,4 +1,4 @@
-const OutlineButton = (props) => {
+const OutlineButton = () => {
   console.error('not implemented component');
   return null;
 };

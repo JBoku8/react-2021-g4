@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { signUp } from '../../../services';
 
-function SignUpForm(props) {
+function SignUpForm() {
   const {
     register,
     handleSubmit,

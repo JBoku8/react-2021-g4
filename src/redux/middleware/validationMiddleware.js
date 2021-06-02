@@ -1,4 +1,4 @@
-export const validationMiddleware = (store) => (next) => (action) => {
+export const validationMiddleware = () => (next) => (action) => {
   console.group('validationMiddleware');
   if (action.type !== 'INVALID_ACTION') {
     next(action);
@@ -7,3 +7,5 @@ export const validationMiddleware = (store) => (next) => (action) => {
   }
   console.groupEnd();
 };
+
+export default validationMiddleware;

@@ -3,7 +3,7 @@ import NotesList from '../../components/list/notes-list';
 
 import './notes-page.css';
 
-function NotesPage(props) {
+function NotesPage() {
   return (
     <div className="row">
       <h2>Notes Page</h2>

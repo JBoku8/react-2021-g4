@@ -5,7 +5,7 @@ import { NotesContext } from '../../../contexts/NotesProvider';
 
 import './style.css';
 
-function AddNoteForm(props) {
+function AddNoteForm() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [completed, setCompleted] = useState(false);

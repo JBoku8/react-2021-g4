@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import PropTypes from "prop-types";
-import Button from "../../components/ui/button";
+import PropTypes from 'prop-types';
+import Button from '../../components/ui/button';
 
 class ClassCounter extends React.Component {
   state = {
     count: 0,
-    prevTitle: "",
+    prevTitle: '',
   };
 
   componentDidMount() {

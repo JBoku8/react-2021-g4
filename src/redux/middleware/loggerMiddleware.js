@@ -6,3 +6,5 @@ export const loggerMiddleware = (store) => (next) => (action) => {
   console.log('NEXT STATE', store.getState());
   console.groupEnd();
 };
+
+export default loggerMiddleware;

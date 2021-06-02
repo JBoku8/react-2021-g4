@@ -1,1 +1,1 @@
-export { appReducer } from './appReducer';
+export { appReducer, default } from './appReducer';

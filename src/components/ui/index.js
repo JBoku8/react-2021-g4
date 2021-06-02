@@ -1,3 +1,1 @@
-import Button_ from './button';
-
-export const Button = Button_;
+export { default } from './button';

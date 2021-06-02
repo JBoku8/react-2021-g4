@@ -12,5 +12,8 @@ export const getCreditCards = async ({ quantity = 3 }) => {
     console.group('[getCreditCards]@catch');
     console.trace(error);
     console.groupEnd();
+    return error;
   }
 };
+
+export const test = () => {};
