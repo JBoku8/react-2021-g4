@@ -55,7 +55,8 @@ function AddNoteForm(props) {
           value={description}
           onChange={({ target }) => {
             setDescription(target.value);
-          }}></textarea>
+          }}
+        />
       </div>
       <div className="mb-3 form-check">
         <input

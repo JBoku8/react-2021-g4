@@ -36,6 +36,16 @@ function ReduxCounter() {
           onClick={() => dispatch(resetNumberAction())}>
           Reset Number - Action
         </button>
+
+        <button
+          className="btn btn-danger"
+          onClick={() =>
+            dispatch({
+              type: 'INVALID_ACTION',
+            })
+          }>
+          Invalid Action - Action
+        </button>
       </div>
     </div>
   );

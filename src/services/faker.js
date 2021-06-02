@@ -5,7 +5,7 @@ const fakerUrl = process.env.REACT_APP_FAKER_API;
 export const getCreditCards = async ({ quantity = 3 }) => {
   try {
     const response = await axios.get(
-      `${fakerUrl}/credit_cards?_quantity=${quantity}`
+      `${fakerUrl}/credit_cards?_quantity=${quantity}`,
     );
     return response.data.data;
   } catch (error) {

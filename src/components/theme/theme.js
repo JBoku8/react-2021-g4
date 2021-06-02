@@ -23,7 +23,7 @@ function Theme({ children, type }) {
         theme = 'bg-light';
         break;
       default:
-        theme = css.homePage;
+        theme = 'bg-light';
     }
 
     setThemeType(theme);

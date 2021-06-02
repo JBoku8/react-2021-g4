@@ -1,2 +1,3 @@
-import Button_ from "./button";
+import Button_ from './button';
+
 export const Button = Button_;

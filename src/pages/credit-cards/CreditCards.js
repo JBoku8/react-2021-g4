@@ -24,9 +24,9 @@ const creditCardReducer = (state, action) => {
         oldCreditCards: [...action.payload],
       };
     case SET_FILTER:
-      const filtered = state.creditCards.filter((item) => {
-        return item.owner.toLowerCase().includes(action.payload.toLowerCase());
-      });
+      const filtered = state.creditCards.filter((item) =>
+        item.owner.toLowerCase().includes(action.payload.toLowerCase()),
+      );
       return {
         ...state,
         filter: action.payload,
@@ -88,26 +88,36 @@ function CreditCards() {
           className="form-control"
           onKeyUp={onSearch}
         />
-        <p className="shadow-sm col-6 p-2">Filtering by: {state.filter}</p>
+        <p className="shadow-sm col-6 p-2">
+          Filtering by:
+          {state.filter}
+        </p>
       </div>
       <div className="row m-0 shadow pt-3 pb-5 justify-content-center">
-        {state.creditCards.map((creditCard) => {
-          return (
-            <div
-              className="card mb-2 p-3 me-1"
-              key={creditCard.number}
-              style={{
-                maxWidth: '18rem',
-              }}>
-              <h2 className="card-title">{creditCard.owner}</h2>
-              <div className="card-body">
-                <h6 className="fs-6">Type: {creditCard.type}</h6>
-                <h6 className="fs-6">Number: {creditCard.number}</h6>
-                <h6 className="fs-6">Expiration: {creditCard.expiration}</h6>
-              </div>
+        {state.creditCards.map((creditCard) => (
+          <div
+            className="card mb-2 p-3 me-1"
+            key={creditCard.number}
+            style={{
+              maxWidth: '18rem',
+            }}>
+            <h2 className="card-title">{creditCard.owner}</h2>
+            <div className="card-body">
+              <h6 className="fs-6">
+                Type:
+                {creditCard.type}
+              </h6>
+              <h6 className="fs-6">
+                Number:
+                {creditCard.number}
+              </h6>
+              <h6 className="fs-6">
+                Expiration:
+                {creditCard.expiration}
+              </h6>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );
