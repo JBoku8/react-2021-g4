@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import API_SERVICE from '../services/api';
+import { API_SERVICE } from '../services/api';
 
 export const NotesContext = React.createContext(null);
 NotesContext.displayName = 'NotesContext';

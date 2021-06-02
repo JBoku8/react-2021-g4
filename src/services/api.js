@@ -20,7 +20,9 @@ export class API_SERVICE {
       const result = await response.json();
 
       return result;
-    } catch (err) {}
+    } catch (err) {
+      return err;
+    }
   }
 }
 

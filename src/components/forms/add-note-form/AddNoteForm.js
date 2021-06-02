@@ -5,7 +5,7 @@ import { NotesContext } from '../../../contexts/NotesProvider';
 
 import './style.css';
 
-function AddNoteForm(props) {
+function AddNoteForm() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [completed, setCompleted] = useState(false);
@@ -55,7 +55,8 @@ function AddNoteForm(props) {
           value={description}
           onChange={({ target }) => {
             setDescription(target.value);
-          }}></textarea>
+          }}
+        />
       </div>
       <div className="mb-3 form-check">
         <input

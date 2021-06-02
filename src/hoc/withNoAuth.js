@@ -12,3 +12,5 @@ export const withNoAuth = (Component) => {
 
   return WithNoAuth;
 };
+
+export default withNoAuth;

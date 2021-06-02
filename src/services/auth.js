@@ -11,6 +11,7 @@ export const login = async (credentials) => {
     return await response.json();
   } catch (error) {
     console.trace(error);
+    return error;
   }
 };
 export const signUp = async (credentials) => {
@@ -26,6 +27,7 @@ export const signUp = async (credentials) => {
     return await response.json();
   } catch {
     console.error('register ERROR');
+    return undefined;
   }
 };
 export const logOut = async () => {

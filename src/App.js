@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
-
-import { Switch, Route } from 'react-router';
+import { Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/home-page';
 import Navigation from './components/navigation';

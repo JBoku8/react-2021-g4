@@ -5,3 +5,5 @@ export function Loader({ message }) {
     </div>
   );
 }
+
+export default Loader;

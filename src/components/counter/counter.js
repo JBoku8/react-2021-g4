@@ -6,7 +6,7 @@ import Button from '../ui/button';
 
 import './counter.css';
 
-function Counter(props) {
+function Counter() {
   const [count, setCount] = useState(0);
   const [showGreeting, setShowGreeting] = useState(true);
 
@@ -29,7 +29,7 @@ function Counter(props) {
     // console.log("SHOW GREETING");
   }, [showGreeting]);
 
-  const onButtonClick = ({ target }) => {
+  const onButtonClick = () => {
     // oldValue !== newValue
     // oldObject !== newObject
     setCount(0);
