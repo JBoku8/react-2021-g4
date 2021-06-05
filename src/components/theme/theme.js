@@ -1,25 +1,31 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+
+import {
+  NOTES_PATH,
+  COUNTER_PATH,
+  PROFILE_PATH,
+  CREDIT_CARDS_PATH,
+} from '../../utils/routePaths';
 
 import css from './theme.module.css';
 
-function Theme({ children, type }) {
+function Theme({ children }) {
   const { pathname } = useLocation();
   const [themeType, setThemeType] = useState();
 
   useEffect(() => {
     let theme = '';
     switch (pathname) {
-      case '/notes':
+      case NOTES_PATH:
         theme = css.notesPage;
         break;
-      case '/counter':
-      case '/profile':
+      case COUNTER_PATH:
+      case PROFILE_PATH:
         theme = css.classCounter;
         break;
-      case '/credit-cards':
+      case CREDIT_CARDS_PATH:
         theme = 'bg-light';
         break;
       default:
@@ -31,13 +37,5 @@ function Theme({ children, type }) {
 
   return <div className={classNames('row p-4', themeType)}>{children}</div>;
 }
-
-Theme.defaultProps = {
-  type: 'light',
-};
-
-Theme.propTypes = {
-  type: PropTypes.string.isRequired,
-};
 
 export default Theme;

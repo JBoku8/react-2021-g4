@@ -16,4 +16,16 @@ export const getCreditCards = async ({ quantity = 3 }) => {
   }
 };
 
-export const test = () => {};
+export const getUsers = async (quantity = 3, gender = 'male') => {
+  try {
+    const response = await axios.get(
+      `${fakerUrl}/users?_quantity=${quantity}&gender=${gender}`,
+    );
+    return response.data.data;
+  } catch (error) {
+    console.group('[getUsers]@catch');
+    console.trace(error);
+    console.groupEnd();
+    return error;
+  }
+};

@@ -1,7 +1,8 @@
-import React from "react";
-import Theme from "../theme/theme";
+import React from 'react';
+import Theme from '../theme/theme';
 
-import "./styles.css";
+import './styles.css';
+
 class ErrorBoundary extends React.Component {
   state = {
     error: null,
@@ -13,13 +14,12 @@ class ErrorBoundary extends React.Component {
       error,
       errorInfo,
     });
-
-    // report problem,
-    // log error
   }
 
   render() {
-    if (this.state.error) {
+    const { error, errorInfo } = this.state;
+    const { children } = this.props;
+    if (error) {
       return (
         <Theme type="dark">
           <div className="container d-flex justify-content-center vh-100 flex-column">
@@ -30,8 +30,8 @@ class ErrorBoundary extends React.Component {
               Home Page
             </a>
 
-            <details style={{ wordSpacing: "pre-wrap" }} className="text-white">
-              {this.state.error.toString()}
+            <details style={{ wordSpacing: 'pre-wrap' }} className="text-white">
+              {errorInfo.toString()}
             </details>
           </div>
         </Theme>
@@ -39,7 +39,7 @@ class ErrorBoundary extends React.Component {
     }
 
     // normally render children
-    return this.props.children;
+    return children;
   }
 }
 

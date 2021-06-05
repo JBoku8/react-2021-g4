@@ -4,6 +4,7 @@ import {
   resetNumberAction,
   subtractNumberAction,
 } from '../../redux/actions';
+import { invalidAction } from '../../redux/actions/middleware-actions';
 
 import { messageSelector, counterSelector } from '../../redux/selectors';
 
@@ -43,11 +44,7 @@ function ReduxCounter() {
         <button
           className="btn btn-danger"
           type="button"
-          onClick={() =>
-            dispatch({
-              type: 'INVALID_ACTION',
-            })
-          }>
+          onClick={() => dispatch(invalidAction())}>
           Invalid Action - Action
         </button>
       </div>

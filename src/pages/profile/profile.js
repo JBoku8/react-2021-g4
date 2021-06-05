@@ -7,6 +7,7 @@ import { logOut } from '../../services';
 import { setGuestUserAction } from '../../redux/actions';
 
 import css from './profile.module.css';
+import { HOME_PATH } from '../../utils/routePaths';
 
 function Profile(props) {
   const history = useHistory();
@@ -14,7 +15,7 @@ function Profile(props) {
   const onLogOut = async () => {
     await logOut();
     dispatch(setGuestUserAction());
-    history.replace('/');
+    history.replace(HOME_PATH);
   };
 
   const { title } = props;

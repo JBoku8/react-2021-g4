@@ -1,11 +1,13 @@
 import classNames from 'classnames';
-import { Redirect, Route, Switch, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router';
 
 import { withNoAuth } from '../../hoc';
 
 import SignIn from './sign-in';
 import SignUp from './sign-up';
+
+import { SIGN_IN_PATH, SIGN_UP_PATH } from '../../utils/routePaths';
 
 function AuthPage() {
   const location = useLocation();
@@ -15,18 +17,18 @@ function AuthPage() {
         <ul className="nav nav-pills nav-fill">
           <li className="nav-item">
             <Link
-              to="/auth/sign-in"
+              to={SIGN_IN_PATH}
               className={classNames('nav-link', {
-                active: location.pathname.includes('/sign-in'),
+                active: location.pathname.includes(SIGN_IN_PATH),
               })}>
               Sign In
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/auth/sign-up"
+              to={SIGN_UP_PATH}
               className={classNames('nav-link', {
-                active: location.pathname.includes('/sign-up'),
+                active: location.pathname.includes(SIGN_UP_PATH),
               })}>
               Sign Up
             </Link>
@@ -35,13 +37,13 @@ function AuthPage() {
       </div>
       <div className="row">
         <Switch>
-          <Route path="/auth/sign-in">
+          <Route path={SIGN_IN_PATH}>
             <SignIn />
           </Route>
-          <Route path="/auth/sign-up">
+          <Route path={SIGN_UP_PATH}>
             <SignUp />
           </Route>
-          <Redirect to="/auth/sign-in" />
+          <Redirect to={SIGN_IN_PATH} />
         </Switch>
       </div>
     </div>
