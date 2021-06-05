@@ -24,6 +24,7 @@ const creditCardReducer = (state, action) => {
         oldCreditCards: [...action.payload],
       };
     case SET_FILTER:
+      // eslint-disable-next-line
       const filtered = state.creditCards.filter((item) =>
         item.owner.toLowerCase().includes(action.payload.toLowerCase()),
       );
