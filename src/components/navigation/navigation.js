@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { authSelector } from '../../redux/selectors';
+import * as routes from '../../utils/routePaths';
 
 import './styles.css';
 
@@ -14,7 +15,7 @@ function Navigation() {
         <li className="nav-item">
           <NavLink
             className="nav-link"
-            to="/"
+            to={routes.HOME_PATH}
             exact
             activeClassName="active bg-homePage">
             Home Page
@@ -24,7 +25,7 @@ function Navigation() {
         <li className="nav-item">
           <NavLink
             className="nav-link"
-            to="/notes"
+            to={routes.NOTES_PATH}
             activeClassName="active bg-notesPage">
             Notes Page
           </NavLink>
@@ -33,7 +34,7 @@ function Navigation() {
         <li className="nav-item">
           <NavLink
             className="nav-link"
-            to="/counter"
+            to={routes.COUNTER_PATH}
             activeClassName="active bg-classCounter ">
             Class Counter
           </NavLink>
@@ -43,7 +44,7 @@ function Navigation() {
           <li className="nav-item">
             <NavLink
               className="nav-link"
-              to="/profile"
+              to={routes.PROFILE_PATH}
               activeClassName="active bg-classCounter ">
               Profile
             </NavLink>
@@ -53,7 +54,7 @@ function Navigation() {
         <li className="nav-item">
           <NavLink
             className="nav-link"
-            to="/credit-cards"
+            to={routes.CREDIT_CARDS_PATH}
             activeClassName="active bg-classCounter ">
             Credit Cards
           </NavLink>
@@ -62,7 +63,7 @@ function Navigation() {
         <li className="nav-item">
           <NavLink
             className="nav-link"
-            to="/redux-counter"
+            to={routes.REDUX_COUNTER_PATH}
             activeClassName="active bg-classCounter ">
             Redux Counter
           </NavLink>
@@ -72,7 +73,7 @@ function Navigation() {
           <li className="nav-item">
             <NavLink
               className="nav-link"
-              to="/auth"
+              to={routes.AUTH_PATH}
               activeClassName="active bg-classCounter ">
               Auth
             </NavLink>

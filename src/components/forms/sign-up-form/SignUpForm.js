@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { signUp } from '../../../services';
+import { AUTH_TOKEN } from '../../../utils/constants';
+import { PROFILE_PATH } from '../../../utils/routePaths';
 
 function SignUpForm() {
   const {
@@ -12,8 +14,8 @@ function SignUpForm() {
 
   const onSubmit = async (data) => {
     const loggedIn = await signUp(data);
-    localStorage.setItem('auth.token', JSON.stringify(loggedIn.token));
-    history.replace('/profile');
+    localStorage.setItem(AUTH_TOKEN, JSON.stringify(loggedIn.token));
+    history.replace(PROFILE_PATH);
   };
 
   return (

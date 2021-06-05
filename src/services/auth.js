@@ -1,3 +1,5 @@
+import { AUTH_TOKEN } from '../utils/constants';
+
 export const login = async (credentials) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_AUTH_URL}/login`, {
@@ -32,7 +34,7 @@ export const signUp = async (credentials) => {
 };
 export const logOut = async () => {
   try {
-    localStorage.removeItem('auth.token');
+    localStorage.removeItem(AUTH_TOKEN);
     // cleanup
   } catch {
     console.error('logOut ERROR');

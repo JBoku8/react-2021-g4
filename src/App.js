@@ -1,61 +1,22 @@
-import React, { Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-import HomePage from './pages/home-page';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import Navigation from './components/navigation';
-import Theme from './components/theme/theme';
-import NotesProvider from './contexts/NotesProvider';
-import { Loader } from './components/loader';
+import Routes from './Routes';
+
+import { autoLoginAction } from './redux/actions/middleware-actions';
 
 import './App.css';
 
-const NotesPage = React.lazy(() => import('./pages/notes-page'));
-const ClassCounter = React.lazy(() => import('./pages/class-counter'));
-const Profile = React.lazy(() => import('./pages/profile'));
-const AuthPage = React.lazy(() => import('./pages/auth'));
-const CreditCards = React.lazy(() => import('./pages/credit-cards'));
-const ReduxCounter = React.lazy(() => import('./pages/redux-counter'));
-
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(autoLoginAction());
+  }, [dispatch]);
   return (
     <div className="container">
       <Navigation />
-
-      <Theme>
-        <Suspense fallback={<Loader message="Page is loading..." />}>
-          <Switch>
-            <Route path="/counter">
-              <ClassCounter title="class component example" initialValue={10} />
-            </Route>
-
-            <Route path="/notes">
-              <NotesProvider>
-                <NotesPage />
-              </NotesProvider>
-            </Route>
-
-            <Route path="/profile">
-              <Profile title="Secured Profile Page" />
-            </Route>
-
-            <Route path="/credit-cards">
-              <CreditCards />
-            </Route>
-
-            <Route path="/redux-counter">
-              <ReduxCounter />
-            </Route>
-
-            <Route path="/auth">
-              <AuthPage />
-            </Route>
-
-            <Route path="/">
-              <HomePage />
-            </Route>
-          </Switch>
-        </Suspense>
-      </Theme>
+      <Routes />
     </div>
   );
 }

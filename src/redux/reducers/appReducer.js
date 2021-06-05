@@ -5,6 +5,8 @@ const initialState = {
   message: 'React Redux Demo!',
   error: null,
   auth: null,
+  users: [],
+  loading: false,
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -36,6 +38,27 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         auth: null,
+      };
+
+    // users
+    case actionType.GET_USERS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionType.GET_USERS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+        user: [],
+      };
+    case actionType.GET_USERS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        users: action.payload,
       };
     default:
       return state;

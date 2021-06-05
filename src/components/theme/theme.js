@@ -2,6 +2,13 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
+import {
+  NOTES_PATH,
+  COUNTER_PATH,
+  PROFILE_PATH,
+  CREDIT_CARDS_PATH,
+} from '../../utils/routePaths';
+
 import css from './theme.module.css';
 
 function Theme({ children }) {
@@ -11,14 +18,14 @@ function Theme({ children }) {
   useEffect(() => {
     let theme = '';
     switch (pathname) {
-      case '/notes':
+      case NOTES_PATH:
         theme = css.notesPage;
         break;
-      case '/counter':
-      case '/profile':
+      case COUNTER_PATH:
+      case PROFILE_PATH:
         theme = css.classCounter;
         break;
-      case '/credit-cards':
+      case CREDIT_CARDS_PATH:
         theme = 'bg-light';
         break;
       default:
