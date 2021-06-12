@@ -7,6 +7,7 @@ import {
   COUNTER_PATH,
   PROFILE_PATH,
   CREDIT_CARDS_PATH,
+  REDUX_COUNTER_PATH,
 } from '../../utils/routePaths';
 
 import css from './theme.module.css';
@@ -23,6 +24,7 @@ function Theme({ children }) {
         break;
       case COUNTER_PATH:
       case PROFILE_PATH:
+      case REDUX_COUNTER_PATH:
         theme = css.classCounter;
         break;
       case CREDIT_CARDS_PATH:
