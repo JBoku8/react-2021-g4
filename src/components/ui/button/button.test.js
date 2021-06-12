@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-
 import Button from './button';
 
 describe('Button component test', () => {
@@ -32,7 +31,6 @@ describe('Button component test', () => {
     );
     expect(component.queryByRole('button')).toHaveTextContent(mockProps.text);
   });
-
   it('should render execute onClick handler when click is triggered', () => {
     const onClickHandler = jest.fn();
     const mockProps = {
@@ -45,7 +43,6 @@ describe('Button component test', () => {
     );
     const buttonElement = component.getByRole('button');
     buttonElement.click();
-
     expect(onClickHandler).toHaveBeenCalledTimes(1);
   });
 });
