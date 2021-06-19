@@ -1,14 +1,16 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { TEST_IDS } from '../../utils/testids';
 
 import Greeting from './greeting';
 
 describe('Greeting component test', () => {
   it('should render with defaults', () => {
-    render(<Greeting />);
-    const defaultTitle = screen.getByText('default title');
-    const defaultDesc = screen.getByText('default description');
+    const component = render(<Greeting />);
+    const defaultTitle = component.getByTestId(TEST_IDS.greeting.title);
+    const defaultDesc = component.getByTestId(TEST_IDS.greeting.description);
 
     expect(defaultTitle).toBeInTheDocument();
+    expect(defaultTitle).toHaveTextContent('default title');
     expect(defaultTitle).toHaveAttribute('title', 'default title');
 
     expect(defaultDesc).toBeInTheDocument();
@@ -20,11 +22,11 @@ describe('Greeting component test', () => {
       title: 'mock-title',
       description: 'mock-description',
     };
-    render(<Greeting {...mockProps} />);
-    const defaultTitle = screen.getByText(mockProps.title);
-    const defaultDesc = screen.getByText(mockProps.description);
+    const component = render(<Greeting {...mockProps} />);
+    const defaultTitle = component.getByTestId(TEST_IDS.greeting.title);
+    const defaultDesc = component.getByTestId(TEST_IDS.greeting.description);
 
-    expect(defaultTitle).toBeInTheDocument();
-    expect(defaultDesc).toBeInTheDocument();
+    expect(defaultTitle).toHaveTextContent(mockProps.title);
+    expect(defaultDesc).toHaveTextContent(mockProps.description);
   });
 });
