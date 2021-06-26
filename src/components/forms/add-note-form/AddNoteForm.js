@@ -1,4 +1,5 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import Button from '../../ui/button';
 
 import { NotesContext } from '../../../contexts/NotesProvider';
@@ -6,30 +7,24 @@ import { NotesContext } from '../../../contexts/NotesProvider';
 import './style.css';
 
 function AddNoteForm() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [completed, setCompleted] = useState(false);
+  const { register, handleSubmit, watch } = useForm();
+
   const { addNewNote, nextId } = useContext(NotesContext);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
+  const onSubmit = (data) => {
     const newNote = {
-      title,
-      description,
-      completed,
+      ...data,
       id: nextId,
     };
+    console.log(newNote);
     addNewNote(newNote);
-    setTitle('');
-    setDescription('');
-    setCompleted(false);
   };
 
   return (
-    <form className="row g-1" onSubmit={onSubmit}>
+    <form className="row g-1" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">
         <label htmlFor="title" className="form-label">
-          Title - {title}
+          Title - {watch('title')}
         </label>
         <input
           type="text"
@@ -37,10 +32,7 @@ function AddNoteForm() {
           id="title"
           placeholder=""
           required
-          value={title}
-          onChange={({ target }) => {
-            setTitle(target.value);
-          }}
+          {...register('title', { required: true })}
         />
       </div>
       <div className="mb-3">
@@ -52,10 +44,7 @@ function AddNoteForm() {
           id="description"
           rows="3"
           required
-          value={description}
-          onChange={({ target }) => {
-            setDescription(target.value);
-          }}
+          {...register('description', { required: true })}
         />
       </div>
       <div className="mb-3 form-check">
@@ -63,10 +52,7 @@ function AddNoteForm() {
           type="checkbox"
           className="form-check-input"
           id="completed"
-          checked={completed}
-          onChange={({ target }) => {
-            setCompleted(target.checked);
-          }}
+          {...register('completed')}
         />
         <label className="form-check-label" htmlFor="completed">
           Completed

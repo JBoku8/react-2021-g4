@@ -30,3 +30,19 @@ describe('Greeting component test', () => {
     expect(defaultDesc).toHaveTextContent(mockProps.description);
   });
 });
+
+describe('Greeting snapshots', () => {
+  test('default snap 1', () => {
+    const component = render(<Greeting />);
+    expect(component).toMatchSnapshot();
+  });
+
+  test('default snap 2', () => {
+    const mockProps = {
+      title: 'mock-title',
+      description: 'mock-description',
+    };
+    const component = render(<Greeting {...mockProps} />);
+    expect(component).toMatchSnapshot();
+  });
+});

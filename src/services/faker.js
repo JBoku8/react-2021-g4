@@ -7,6 +7,7 @@ export const getCreditCards = async ({ quantity = 3 }) => {
     const response = await axios.get(
       `${fakerUrl}/credit_cards?_quantity=${quantity}`,
     );
+
     return response.data.data;
   } catch (error) {
     console.group('[getCreditCards]@catch');
